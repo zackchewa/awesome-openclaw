@@ -672,6 +672,7 @@ docker compose run --rm openclaw-cli security audit --deep
 - [Vectra - When Automation Becomes a Digital Backdoor](https://www.vectra.ai/blog/clawdbot-to-moltbot-to-openclaw-when-automation-becomes-a-digital-backdoor)
 - [Belgium CCB Advisory](https://ccb.belgium.be/advisories/warning-critical-vulnerability-openclaw-allows-1-click-remote-code-execution-when)
 - [University of Toronto Advisory](https://security.utoronto.ca/advisories/openclaw-vulnerability-notification/)
+- [n8n + OpenClaw Security White Paper](https://gripsy.com.au/research/n8n-openclaw-security-whitepaper.html) — Security analysis of n8n and OpenClaw integration patterns: credential isolation via n8n proxy, webhook hardening, network architecture, and threat modeling for production deployments. Peer-reviewed with multi-model validation. By Dr. Gaurav Caprihan.
 
 ---
 
@@ -1052,6 +1053,7 @@ Capabilities: CDP, ARIA snapshots, screenshots, tab management, click/type/drag,
 - Voice notes to clean journal entries
 - Platform-specific content: X threads, LinkedIn posts, blog articles
 - Weekly meal planning in Notion (saves 1 hour/week)
+- **AI-Powered Daily Digest & Content Pipeline** — Production OpenClaw setup with 20+ cron jobs for automated news aggregation, multi-model content creation, social monitoring, and n8n webhook integration. Hosted on Oracle Cloud Free Tier. By Dr. Gaurav Caprihan.
 
 ### Family
 - Monitor school WhatsApp groups, filter noise
@@ -1144,6 +1146,7 @@ Capabilities: CDP, ARIA snapshots, screenshots, tab management, click/type/drag,
 - [How Memory System Works](https://snowan.gitbook.io/study-notes/ai-blogs/openclaw-memory-system-deep-dive)
 - [centminmod/explain-openclaw](https://github.com/centminmod/explain-openclaw) - Multi-AI security analysis (73 files)
 - [Cron Jobs Automation Guide](https://zenvanriel.nl/ai-engineer-blog/openclaw-cron-jobs-proactive-ai-guide/)
+- [Beyond Babel: Bridging AI's Communication Gap with MCP, A2A, and ACP](https://medium.com/@gaurav.caprihan/beyond-babel-bridging-ais-communication-gap-with-mcp-a2a-and-acp-35e348bb4233) — Deep analysis of AI agent interoperability protocols with practical MCP server integration using Melbourne open data. By Dr. Gaurav Caprihan.
 
 ---
 
@@ -1183,6 +1186,7 @@ Capabilities: CDP, ARIA snapshots, screenshots, tab management, click/type/drag,
 | **Codecademy** | [Tutorial](https://www.codecademy.com/article/open-claw-tutorial-installation-to-first-chat-setup) | **Free** | 20-minute install guide |
 | **GitHub Course** | [kiankyars/openclawcourse](https://github.com/kiankyars/openclawcourse) | **Free** | 1-hour crash course |
 | **Udemy** | [Azure VM Course](https://www.udemy.com/course/openclaw/) | Paid | Azure Linux VM deployment |
+| **Gripsy Learn** | [OpenClaw Mastery](https://gripsy.com.au/learn/openclaw/) | Free/Paid | 11-module course: setup, skills, multi-model, security, automation. Quizzes & certificates. |
 
 ---
 
