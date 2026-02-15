@@ -112,9 +112,8 @@ body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg)
 [data-theme="light"] .hero h1 .hero-inline-light{display:inline}
 [data-theme="light"] .hero h1 .hero-inline-dark{display:none}
 .hero-tagline{position:relative;z-index:1;font-size:1.15rem;color:var(--text-muted);max-width:700px;margin:0 auto 32px;line-height:1.6}
-.stats-bar{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin-bottom:32px}
-.stat{font-weight:700;font-size:1rem;color:var(--text)}
-.stat span{color:var(--text-muted);font-weight:400;font-size:.85rem;margin-left:4px}
+.stats-bar{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:32px}
+.stats-bar img{height:28px}
 .hero-badges{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:36px}
 .hero-badges img{height:22px}
 .hero-ctas{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
@@ -190,8 +189,8 @@ body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg)
 .hero h1{font-size:2rem}
 .hero-logo{max-width:200px}
 .hero-tagline{font-size:.95rem;padding:0 8px}
-.stats-bar{gap:12px}
-.stat{font-size:.85rem}
+.stats-bar{gap:8px}
+.stats-bar img{height:22px}
 .hero-ctas{display:none}
 .hero-badges{gap:4px}
 .hero-badges img{height:18px}
@@ -225,17 +224,15 @@ body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg)
 <div class="hero-orb"></div>
 <h1>Awesome <img src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text.png" alt="OpenClaw" class="hero-inline-logo hero-inline-dark"><img src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text-dark.png" alt="OpenClaw" class="hero-inline-logo hero-inline-light"></h1>
 <div class="stats-bar">
-<div class="stat">179K+<span>stars</span></div>
-<div class="stat">29.6K+<span>forks</span></div>
-<div class="stat">376<span>contributors</span></div>
-<div class="stat">9,191+<span>commits</span></div>
+<img src="https://img.shields.io/github/stars/openclaw/openclaw?style=for-the-badge&logo=github&label=Stars&color=gold" alt="Stars" loading="lazy">
+<img src="https://img.shields.io/github/forks/openclaw/openclaw?style=for-the-badge&logo=git&label=Forks&color=silver" alt="Forks" loading="lazy">
+<img src="https://img.shields.io/github/contributors/openclaw/openclaw?style=for-the-badge&label=Contributors&color=green" alt="Contributors" loading="lazy">
+<img src="https://img.shields.io/github/commit-activity/t/openclaw/openclaw?style=for-the-badge&label=Commits&color=blue" alt="Commits" loading="lazy">
 </div>
 <p class="hero-tagline">The most comprehensive, curated collection of OpenClaw resources, hosting guides, cost comparisons, security hardening, skills, tutorials, and community links.</p>
 <div class="hero-badges">
 <img src="https://awesome.re/badge.svg" alt="Awesome" loading="lazy">
-<img src="https://img.shields.io/github/stars/openclaw/openclaw?style=flat&logo=github&label=Stars&color=gold" alt="Stars" loading="lazy">
 <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License" loading="lazy">
-<img src="https://img.shields.io/github/contributors/openclaw/openclaw?label=Contributors&color=green" alt="Contributors" loading="lazy">
 </div>
 <div class="hero-ctas">
 <a href="https://github.com/rohitg00/awesome-openclaw" target="_blank" rel="noopener" class="btn btn-primary">
