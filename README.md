@@ -806,6 +806,7 @@ Full suite access: Gmail, Calendar, Drive, Docs, Sheets. All data stays local â€
 - [Webhooks Docs](https://docs.openclaw.ai/automation/webhook)
 - [Cron Jobs Docs](https://docs.openclaw.ai/automation/cron-jobs)
 - [Heartbeat Docs](https://docs.openclaw.ai/gateway/heartbeat)
+- **[ClawTick](https://clawtick.com/)** â€” Cloud scheduler for OpenClaw agents with performance monitoring and uptime checks.
 
 ### Live Canvas
 
@@ -842,6 +843,7 @@ Configure multiple agents with separate workspaces, personas, auth profiles, and
 | **[OpenClaw Mission Control](https://github.com/abhi1693/openclaw-mission-control)** | Community | RBAC, Kanban board, War Room, transcripts, Telegram output (37 stars) |
 | **[OpenClaw Studio](https://github.com/grp06/openclaw-studio)** | Community | Visual agent management with cron jobs, tool extraction, mentions (410 stars) |
 | **[Hawk Eye](https://github.com/benfoxsb/hawk-eye)** | Community | Workspace sentinel & operational dashboard |
+| **[ClawTick](https://clawtick.com/)** | Third-party | Performance monitoring, uptime checks, and real-time analytics for OpenClaw instances. |
 
 ### Backup & Restore
 
