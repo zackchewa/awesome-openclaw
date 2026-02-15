@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenClaw v2026.2.6: Opus 4.6, Safety Scanner, and the Security Hardening Era</title>
+<meta name="description" content="OpenClaw v2026.2.6 brings Opus 4.6 support, a new safety scanner for ClawHub, security hardening across Gateway and Control UI, plus Unbrowse browser automation and token usage dashboards.">
+<meta property="og:title" content="OpenClaw v2026.2.6: Opus 4.6, Safety Scanner, and the Security Hardening Era">
+<meta property="og:description" content="The most security-focused OpenClaw release yet. Opus 4.6, GPT-5.3-Codex, safety scanner, credential redaction, and Unbrowse.">
+<meta property="og:image" content="https://openclawsearch.com/og-image.png">
+<meta property="og:url" content="https://openclawsearch.com/blog/v2026-2-6-release">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OpenClaw v2026.2.6: Opus 4.6, Safety Scanner, Security Hardening">
+<meta name="twitter:description" content="The most security-focused OpenClaw release yet. New model support, safety scanner, credential redaction, Unbrowse automation.">
+<meta name="twitter:image" content="https://openclawsearch.com/og-image.png">
+<link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/pixel-lobster.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#0A0A0A;--bg-s1:#111111;--bg-s2:#1A1A1A;
+--text:#EDEDED;--text-muted:#888888;
+--card:rgba(255,255,255,0.05);--card-border:rgba(255,255,255,0.08);
+--primary:#DC2626;--primary-light:#EF4444;
+--code-bg:rgba(255,255,255,0.06);
+--table-header:rgba(220,38,38,0.08);
+--table-row-hover:rgba(255,255,255,0.03);
+--table-stripe:rgba(255,255,255,0.015);
+--link:#EF4444;--link-hover:#DC2626;
+--badge-bg:rgba(220,38,38,0.12);--badge-text:#EF4444;
+--scrollbar-track:rgba(255,255,255,0.02);--scrollbar-thumb:rgba(255,255,255,0.1);
+--nav-bg:rgba(10,10,10,0.8);
+--green:#22C55E;--green-bg:rgba(34,197,94,0.08);--green-border:rgba(34,197,94,0.25);
+--yellow:#F59E0B;--yellow-bg:rgba(245,158,11,0.08);--yellow-border:rgba(245,158,11,0.25);
+--blue:#3B82F6;--blue-bg:rgba(59,130,246,0.08);--blue-border:rgba(59,130,246,0.25);
+}
+[data-theme="light"]{
+--bg:#FAFAFA;--bg-s1:#FFFFFF;--bg-s2:#F5F5F5;
+--text:#171717;--text-muted:#666666;
+--card:#FFFFFF;--card-border:rgba(0,0,0,0.08);
+--code-bg:rgba(0,0,0,0.04);
+--table-header:rgba(220,38,38,0.06);
+--table-row-hover:rgba(0,0,0,0.02);
+--table-stripe:rgba(0,0,0,0.015);
+--link:#DC2626;--link-hover:#B91C1C;
+--badge-bg:rgba(220,38,38,0.08);--badge-text:#DC2626;
+--scrollbar-track:rgba(0,0,0,0.02);--scrollbar-thumb:rgba(0,0,0,0.12);
+--nav-bg:rgba(250,250,250,0.85);
+--green-bg:rgba(34,197,94,0.06);--green-border:rgba(34,197,94,0.2);
+--yellow-bg:rgba(245,158,11,0.06);--yellow-border:rgba(245,158,11,0.2);
+--blue-bg:rgba(59,130,246,0.06);--blue-border:rgba(59,130,246,0.2);
+}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;transition:background .3s,color .3s}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--scrollbar-track)}
+::-webkit-scrollbar-thumb{background:var(--scrollbar-thumb);border-radius:4px}
+
+.nav{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--card-border);transition:background .3s}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:64px}
+.nav-logo{font-weight:800;font-size:1.1rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px}
+.nav-logo .claw{color:var(--primary)}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.nav-link{color:var(--text-muted);text-decoration:none;font-size:.85rem;font-weight:500;padding:6px 14px;border-radius:8px;border:1px solid var(--card-border);transition:all .2s}
+.nav-link:hover,.nav-link.active{color:var(--text);border-color:var(--primary)}
+.theme-toggle{background:var(--card);border:1px solid var(--card-border);color:var(--text);cursor:pointer;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all .2s}
+.theme-toggle:hover{border-color:var(--primary)}
+.gh-link{color:var(--text-muted);text-decoration:none;font-size:.85rem;font-weight:500;padding:6px 14px;border-radius:8px;border:1px solid var(--card-border);transition:all .2s;display:flex;align-items:center;gap:6px}
+.gh-link:hover{color:var(--text);border-color:var(--primary)}
+.gh-link svg{width:16px;height:16px;fill:currentColor}
+
+.article{max-width:780px;margin:0 auto;padding:0 24px 80px}
+.article-header{padding:80px 0 48px;border-bottom:1px solid var(--card-border);margin-bottom:48px}
+.article-badge{display:inline-flex;align-items:center;gap:6px;background:var(--badge-bg);color:var(--badge-text);font-size:.8rem;font-weight:600;padding:4px 14px;border-radius:16px;margin-bottom:20px}
+.article-title{font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-0.03em;line-height:1.15;margin-bottom:16px}
+.article-title .hl{color:var(--primary)}
+.article-subtitle{font-size:1.2rem;color:var(--text-muted);margin-bottom:24px;line-height:1.5}
+.article-meta{display:flex;flex-wrap:wrap;align-items:center;gap:16px;color:var(--text-muted);font-size:.85rem}
+.article-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.article-pill{font-size:.75rem;padding:4px 12px;border-radius:6px;background:var(--card);border:1px solid var(--card-border);color:var(--text-muted);font-weight:500}
+
+.article h2{font-size:1.6rem;font-weight:800;letter-spacing:-0.02em;margin:56px 0 20px;padding-left:16px;border-left:4px solid var(--primary);line-height:1.3}
+.article h3{font-size:1.2rem;font-weight:700;margin:36px 0 14px;color:var(--text)}
+.article h4{font-size:1.05rem;font-weight:600;margin:28px 0 10px}
+.article p{color:var(--text-muted);margin-bottom:18px;line-height:1.8}
+.article strong{color:var(--text);font-weight:600}
+.article a{color:var(--link);text-decoration:none;transition:color .2s}
+.article a:hover{color:var(--link-hover);text-decoration:underline}
+.article ul,.article ol{margin:0 0 20px 24px;color:var(--text-muted)}
+.article li{margin-bottom:8px;line-height:1.7}
+.article li strong{color:var(--text)}
+
+.article code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--code-bg);padding:2px 6px;border-radius:4px;color:var(--primary-light)}
+.article pre{position:relative;margin:20px 0 28px;border-radius:12px;background:var(--bg-s2);border:1px solid var(--card-border);overflow-x:auto}
+.article pre code{display:block;padding:20px;background:none;color:var(--text);line-height:1.6;font-size:.85rem}
+.article pre code.hljs{background:none;padding:20px}
+.code-label{position:absolute;top:0;left:0;background:var(--card);border-bottom:1px solid var(--card-border);border-right:1px solid var(--card-border);border-radius:0 0 8px 0;padding:4px 12px;font-size:.7rem;font-family:'JetBrains Mono',monospace;color:var(--text-muted);font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+.copy-btn{position:absolute;top:8px;right:8px;background:var(--card);border:1px solid var(--card-border);color:var(--text-muted);cursor:pointer;padding:4px 10px;border-radius:6px;font-size:.75rem;font-family:inherit;transition:all .2s;z-index:2}
+.copy-btn:hover{color:var(--text);border-color:var(--primary)}
+.copy-btn.copied{color:var(--primary);border-color:var(--primary)}
+
+.table-wrap{overflow-x:auto;margin:20px 0 28px;border-radius:12px;border:1px solid var(--card-border);background:var(--bg-s1)}
+.article table{width:100%;border-collapse:collapse;font-size:.9rem}
+.article thead{background:var(--table-header)}
+.article th{text-align:left;padding:12px 16px;font-weight:600;color:var(--text);white-space:nowrap;border-bottom:1px solid var(--card-border)}
+.article td{padding:10px 16px;border-bottom:1px solid var(--card-border);color:var(--text-muted)}
+.article tr:last-child td{border-bottom:none}
+.article tbody tr:nth-child(even){background:var(--table-stripe)}
+.article tbody tr:hover{background:var(--table-row-hover)}
+
+.callout{margin:24px 0;padding:20px 24px;border-radius:12px;border:1px solid var(--card-border);background:var(--bg-s1)}
+.callout-problem{border-color:rgba(220,38,38,0.25);background:rgba(220,38,38,0.04)}
+.callout-solution{border-color:var(--green-border);background:var(--green-bg)}
+.callout-tip{border-color:var(--yellow-border);background:var(--yellow-bg)}
+.callout-info{border-color:var(--blue-border);background:var(--blue-bg)}
+.callout-title{font-weight:700;font-size:.9rem;margin-bottom:8px;color:var(--text);display:flex;align-items:center;gap:8px}
+.callout p{margin-bottom:0;font-size:.9rem}
+.callout p+p{margin-top:10px}
+.callout a{color:var(--link)}
+
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+.comparison-col{padding:20px;border-radius:12px;border:1px solid var(--card-border);background:var(--bg-s1)}
+.comparison-col.before{border-color:rgba(220,38,38,0.2)}
+.comparison-col.after{border-color:var(--green-border)}
+.comparison-col h4{font-size:.85rem;font-weight:700;margin:0 0 12px;text-transform:uppercase;letter-spacing:.05em}
+.comparison-col.before h4{color:#EF4444}
+.comparison-col.after h4{color:var(--green)}
+.comparison-col ul{margin:0;padding:0;list-style:none}
+.comparison-col li{font-size:.85rem;color:var(--text-muted);padding:4px 0;line-height:1.5}
+
+.impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:24px 0}
+.impact-card{padding:20px;border-radius:12px;border:1px solid var(--card-border);background:var(--bg-s1);text-align:center}
+.impact-val{font-size:1.8rem;font-weight:900;color:var(--primary);margin-bottom:4px}
+.impact-label{font-size:.8rem;color:var(--text-muted);font-weight:500}
+
+.tweet-embed{margin:24px 0;padding:24px;border-radius:12px;border:1px solid var(--card-border);background:var(--bg-s1);position:relative}
+.tweet-embed::before{content:'';position:absolute;top:24px;left:24px;width:32px;height:32px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23888' d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z'/%3E%3C/svg%3E");background-size:contain;background-repeat:no-repeat;opacity:.5}
+.tweet-embed .tweet-author{margin-left:44px;margin-bottom:14px}
+.tweet-embed .tweet-name{font-weight:700;font-size:.95rem;color:var(--text)}
+.tweet-embed .tweet-handle{font-size:.8rem;color:var(--text-muted)}
+.tweet-embed .tweet-body{font-size:.95rem;color:var(--text-muted);line-height:1.7;margin-bottom:14px}
+.tweet-embed .tweet-body strong{color:var(--text)}
+.tweet-embed .tweet-date{font-size:.75rem;color:var(--text-muted)}
+.tweet-embed .tweet-stats{display:flex;gap:16px;margin-top:12px;padding-top:12px;border-top:1px solid var(--card-border)}
+.tweet-embed .tweet-stat{font-size:.8rem;color:var(--text-muted);display:flex;align-items:center;gap:4px}
+
+.source-ref{margin:16px 0;padding:14px 18px;border-radius:10px;border:1px solid var(--card-border);background:var(--bg-s1);display:flex;align-items:flex-start;gap:12px;font-size:.85rem;color:var(--text-muted);transition:border-color .2s}
+.source-ref:hover{border-color:rgba(220,38,38,0.3)}
+.source-ref .source-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.source-ref .source-title{font-weight:600;color:var(--text);margin-bottom:2px}
+.source-ref .source-url{font-size:.75rem;color:var(--text-muted);word-break:break-all}
+.source-ref a{color:inherit;text-decoration:none}
+.source-ref a:hover .source-title{color:var(--link)}
+
+.checklist{margin:24px 0;padding:24px;border-radius:12px;border:1px solid var(--card-border);background:var(--bg-s1)}
+.checklist h3{margin:0 0 16px;font-size:1rem}
+.checklist-group{margin-bottom:20px}
+.checklist-group:last-child{margin-bottom:0}
+.checklist-group-title{font-size:.85rem;font-weight:700;color:var(--text);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em}
+.checklist-item{display:flex;align-items:flex-start;gap:10px;padding:6px 0;font-size:.9rem;color:var(--text-muted)}
+.checklist-box{width:18px;height:18px;border:2px solid var(--card-border);border-radius:4px;flex-shrink:0;margin-top:2px}
+
+.toc{margin:32px 0;padding:24px;border-radius:12px;border:1px solid var(--card-border);background:var(--bg-s1)}
+.toc-title{font-size:.9rem;font-weight:700;margin-bottom:12px;color:var(--text);text-transform:uppercase;letter-spacing:.04em}
+.toc-list{list-style:none;margin:0;padding:0}
+.toc-list li{margin-bottom:6px}
+.toc-list a{color:var(--text-muted);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.toc-list a:hover{color:var(--primary)}
+.toc-list a .num{color:var(--primary);font-weight:700;margin-right:8px;font-family:'JetBrains Mono',monospace;font-size:.8rem}
+
+.pricing-table .highlight-row{background:rgba(34,197,94,0.06)}
+.pricing-table .highlight-row td{color:var(--green);font-weight:600}
+
+.article hr{border:none;height:1px;background:var(--card-border);margin:48px 0}
+
+.footer{text-align:center;padding:48px 24px;border-top:1px solid var(--card-border);color:var(--text-muted);font-size:.85rem}
+.footer a{color:var(--link);text-decoration:none}
+.footer a:hover{text-decoration:underline}
+.footer-logo{font-weight:800;font-size:1.2rem;margin-bottom:8px;color:var(--text)}
+.footer-logo .claw{color:var(--primary)}
+
+.back-to-top{position:fixed;bottom:24px;right:24px;z-index:50;width:44px;height:44px;border-radius:12px;background:var(--primary);color:#fff;border:none;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(220,38,38,0.3);opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none}
+.back-to-top.show{opacity:1;transform:none;pointer-events:auto}
+.back-to-top:hover{background:var(--primary-light);transform:translateY(-2px)}
+
+.reading-progress{position:fixed;top:64px;left:0;height:3px;background:var(--primary);z-index:99;transition:width .1s linear;width:0}
+
+@media(max-width:768px){
+.nav-inner{padding:0 10px;gap:6px}
+.nav-actions{gap:6px}
+.nav-link{padding:4px 8px;font-size:.75rem}
+.theme-toggle{width:30px;height:30px;font-size:.9rem}
+.gh-link{padding:4px 8px;gap:4px}
+.gh-link span{display:none}
+.article{padding:0 16px 40px}
+.article-header{padding:48px 0 32px}
+.article-title{font-size:1.8rem}
+.article-subtitle{font-size:1rem}
+.article h2{font-size:1.3rem}
+.comparison{grid-template-columns:1fr}
+.impact-grid{grid-template-columns:repeat(2,1fr)}
+.tweet-embed{padding:16px}
+.tweet-embed::before{width:24px;height:24px;top:16px;left:16px}
+.tweet-embed .tweet-author{margin-left:36px}
+}
+</style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<nav class="nav"><div class="nav-inner">
+<a href="/" class="nav-logo"><span class="claw">Open</span>Claw</a>
+<div class="nav-actions">
+<a href="/" class="nav-link">Home</a>
+<a href="/directory" class="nav-link">Directory</a>
+<a href="/blog" class="nav-link active">Blog</a>
+<button class="theme-toggle" id="themeToggle" title="Toggle theme"><span id="themeIcon">&#x263E;</span></button>
+<a href="https://github.com/rohitg00/awesome-openclaw" target="_blank" rel="noopener" class="gh-link"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>GitHub</span></a>
+</div>
+</div></nav>
+
+<article class="article">
+
+<header class="article-header">
+<div class="article-badge">Release</div>
+<h1 class="article-title">OpenClaw v2026.2.6: Opus 4.6, Safety Scanner, and the <span class="hl">Security Hardening</span> Era</h1>
+<p class="article-subtitle">The most security-focused OpenClaw release yet. New model support, a safety scanner for ClawHub, credential redaction, and the beginning of a platform that takes supply chain integrity seriously.</p>
+<div class="article-meta">
+<span>Rohit Ghumare &middot; <a href="https://x.com/ghumare64" target="_blank" rel="noopener" style="color:var(--link);text-decoration:none">@ghumare64</a></span>
+<span>Feb 2026</span>
+<span>8 min read</span>
+</div>
+<div class="article-pills">
+<span class="article-pill">v2026.2.6</span>
+<span class="article-pill">Security</span>
+<span class="article-pill">Opus 4.6</span>
+<span class="article-pill">Safety Scanner</span>
+<span class="article-pill">Unbrowse</span>
+</div>
+</header>
+
+<div class="impact-grid">
+<div class="impact-card"><div class="impact-val">5</div><div class="impact-label">New Model Providers</div></div>
+<div class="impact-card"><div class="impact-val">341</div><div class="impact-label">Malicious Skills Blocked</div></div>
+<div class="impact-card"><div class="impact-val">100x</div><div class="impact-label">Unbrowse vs Traditional</div></div>
+<div class="impact-card"><div class="impact-val">v2026.2.6</div><div class="impact-label">Release Date: Feb 7</div></div>
+</div>
+
+<nav class="toc">
+<div class="toc-title">What's Inside</div>
+<ol class="toc-list">
+<li><a href="#intro"><span class="num">00</span>What Dropped</a></li>
+<li><a href="#models"><span class="num">01</span>New Model Support</a></li>
+<li><a href="#scanner"><span class="num">02</span>Safety Scanner</a></li>
+<li><a href="#hardening"><span class="num">03</span>Security Hardening</a></li>
+<li><a href="#features"><span class="num">04</span>New Features</a></li>
+<li><a href="#cron"><span class="num">05</span>Cron &amp; Stability Fixes</a></li>
+<li><a href="#upgrade"><span class="num">06</span>Upgrade Now</a></li>
+</ol>
+</nav>
+
+<h2 id="intro">What Dropped</h2>
+
+<p>OpenClaw v2026.2.6 shipped February 7, 2026.</p>
+
+<p>This isn't a features-first release. It's a security-first release. The ClawHavoc campaign forced OpenClaw's hand &mdash; 341 malicious skills discovered in the wild, credential exfiltration vectors in config responses, and unauthenticated Gateway canvas hosts. All addressed in this single release.</p>
+
+<p>There's also meaningful model expansion. Opus 4.6, GPT-5.3-Codex, Grok, and Baidu Qianfan all land as supported providers. Plus a new browser automation tool called Unbrowse that generates skills 100x faster than traditional approaches.</p>
+
+<p>Here's everything that matters.</p>
+
+<hr>
+
+<h2 id="models">New Model Support</h2>
+
+<p>Five provider-level changes in this release. The model roster is getting wide.</p>
+
+<h3>Anthropic Opus 4.6</h3>
+
+<p>Full support for <strong>Opus 4.6</strong> with forward-compatibility fallbacks. If your provider hasn't rolled Opus 4.6 yet, OpenClaw gracefully falls back to Opus 4.5 without breaking your config. The agents subsystem bumps <code>pi-mono</code> to <strong>0.52.7</strong> specifically for Opus compatibility.</p>
+
+<pre><code class="language-json">{
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "anthropic/claude-opus-4-6"
+      }
+    }
+  }
+}</code></pre>
+
+<h3>OpenAI GPT-5.3-Codex</h3>
+
+<p>GPT-5.3-Codex is now a first-class provider. This is OpenAI's code-specialized model &mdash; strong at structured generation and function calling. Useful as a routing target for code-heavy tasks where you want to avoid Opus pricing.</p>
+
+<h3>xAI Grok</h3>
+
+<p>Grok joins as a new provider. This is xAI's model, now accessible through OpenClaw's unified provider interface. Configure it the same way as any other provider:</p>
+
+<pre><code class="language-json">{
+  "agents": {
+    "defaults": {
+      "models": {
+        "xai/grok": {
+          "alias": "grok"
+        }
+      }
+    }
+  }
+}</code></pre>
+
+<h3>Baidu Qianfan</h3>
+
+<p>Baidu's Qianfan platform is now a supported provider. This matters for teams operating in China or needing models trained on Chinese-language data. Configuration follows the standard provider pattern.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Provider</th><th>Model</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td><strong>Anthropic</strong></td><td>Opus 4.6</td><td>Full support + fallback to 4.5</td></tr>
+<tr><td><strong>OpenAI</strong></td><td>GPT-5.3-Codex</td><td>First-class provider</td></tr>
+<tr><td><strong>xAI</strong></td><td>Grok</td><td>New provider</td></tr>
+<tr><td><strong>Baidu</strong></td><td>Qianfan</td><td>New provider</td></tr>
+<tr><td><strong>Internal</strong></td><td>pi-mono 0.52.7</td><td>Opus 4.6 compatibility</td></tr>
+</tbody>
+</table>
+</div>
+
+<hr>
+
+<h2 id="scanner">Safety Scanner</h2>
+
+<p>This is the headline feature. And it exists because of a real attack.</p>
+
+<div class="callout callout-problem">
+<div class="callout-title">ClawHavoc Campaign</div>
+<p>In early 2026, security researchers discovered <strong>341 malicious skills</strong> published to ClawHub. The campaign, dubbed ClawHavoc, used obfuscated code in skill hooks to exfiltrate API keys, environment variables, and credentials from users who installed them. Some skills had thousands of installs before being flagged.</p>
+</div>
+
+<p>The safety scanner is OpenClaw's direct response. Every skill and plugin submitted to ClawHub now passes through an automated code safety scan before it's available for installation.</p>
+
+<h3>What It Scans</h3>
+
+<ul>
+<li><strong>Hook scripts</strong> &mdash; checks for outbound network calls, credential access patterns, and obfuscated code</li>
+<li><strong>Plugin manifests</strong> &mdash; validates declared permissions match actual code behavior</li>
+<li><strong>Skill definitions</strong> &mdash; ensures skill code doesn't access filesystem paths outside declared scope</li>
+<li><strong>Dependencies</strong> &mdash; flags known-malicious packages and suspicious dependency chains</li>
+</ul>
+
+<h3>VirusTotal Partnership</h3>
+
+<p>OpenClaw is exploring a potential <strong>VirusTotal integration</strong> for marketplace integrity. The idea: every ClawHub submission gets cross-referenced against VirusTotal's threat database before publication. This isn't live yet, but the scanner infrastructure is built to support it.</p>
+
+<h3>Credential Redaction</h3>
+
+<p>Config responses now <strong>redact credentials</strong> automatically. Previously, certain API responses could leak API keys and tokens in their payloads. This release ensures sensitive values are masked before they reach the agent's context window.</p>
+
+<pre><code class="language-json">{
+  "provider": "anthropic",
+  "api_key": "sk-ant-***REDACTED***",
+  "status": "connected"
+}</code></pre>
+
+<p>If you're running a multi-user OpenClaw deployment, this alone justifies the upgrade.</p>
+
+<hr>
+
+<h2 id="hardening">Security Hardening</h2>
+
+<p>Beyond the scanner, v2026.2.6 closes several attack surface gaps across the Gateway, Control UI, and exec approval system.</p>
+
+<h3>Gateway Canvas Host Authentication</h3>
+
+<p>Gateway canvas hosts now <strong>require authentication</strong>. Previously, canvas-rendered content could be served to unauthenticated clients. This was a vector for serving malicious content through an OpenClaw instance's Gateway endpoint.</p>
+
+<h3>A2UI Asset Authentication</h3>
+
+<p>Same treatment for A2UI (Agent-to-UI) assets. All asset serving now goes through the auth layer. No more anonymous access to UI components.</p>
+
+<h3>Control UI Asset Hardening</h3>
+
+<p>Control UI asset handling during updates has been hardened. The update process previously had a window where assets could be swapped. That window is closed.</p>
+
+<h3>Exec Approval Allowlist Fix</h3>
+
+<p>A subtle but important fix: exec approvals now <strong>coerce string allowlists to objects</strong>. Previously, if you passed a string where an object was expected in your exec approval config, the allowlist would silently fail open. Now it's properly coerced.</p>
+
+<div class="comparison">
+<div class="comparison-col before">
+<h4>Before v2026.2.6</h4>
+<ul>
+<li>Canvas hosts served without auth</li>
+<li>A2UI assets publicly accessible</li>
+<li>Control UI update window exploitable</li>
+<li>String allowlists silently failed open</li>
+<li>Credentials leaked in config responses</li>
+</ul>
+</div>
+<div class="comparison-col after">
+<h4>After v2026.2.6</h4>
+<ul>
+<li>Canvas hosts require authentication</li>
+<li>A2UI assets behind auth layer</li>
+<li>Control UI update process hardened</li>
+<li>String allowlists coerced to objects</li>
+<li>Credentials redacted automatically</li>
+</ul>
+</div>
+</div>
+
+<div class="callout callout-info">
+<div class="callout-title">Gateway Auth Mode "none"</div>
+<p>If you were relying on <code>auth_mode: "none"</code> in your Gateway config, that option was already removed in an earlier release. This release continues that trajectory &mdash; authentication is no longer optional for any public-facing OpenClaw endpoint.</p>
+</div>
+
+<hr>
+
+<h2 id="features">New Features</h2>
+
+<p>Security dominated this release, but there's real feature work too.</p>
+
+<h3>Web UI Token Usage Dashboard</h3>
+
+<p>The web UI now includes a <strong>token usage dashboard</strong>. Track input tokens, output tokens, cache hits, and cost breakdowns directly in the browser. No more digging through logs or using third-party tools for basic usage visibility.</p>
+
+<h3>Native Voyage AI Support for Memory</h3>
+
+<p>Memory embeddings now support <strong>Voyage AI</strong> natively. If you're using OpenClaw's memory system for long-term context, you can point it at Voyage AI's embedding models instead of defaulting to OpenAI embeddings.</p>
+
+<pre><code class="language-json">{
+  "memory": {
+    "embedding": {
+      "provider": "voyageai",
+      "model": "voyage-3"
+    }
+  }
+}</code></pre>
+
+<h3>Capped sessions_history Payloads</h3>
+
+<p>The <code>sessions_history</code> payload is now <strong>capped</strong>. This directly addresses context overflow issues where long-running agents would accumulate session history until the context window was exhausted. The cap keeps payloads manageable without losing critical context.</p>
+
+<h3>Unbrowse Browser Automation</h3>
+
+<p>This one is interesting. <strong>Unbrowse</strong> auto-discovers APIs from browser traffic and generates skills from them. Instead of manually writing browser automation scripts, Unbrowse watches your browser traffic, identifies the underlying API calls, and generates OpenClaw skills that call those APIs directly.</p>
+
+<p>The claim: <strong>100x faster</strong> than traditional browser automation. No more brittle CSS selectors or waiting for page loads. You get clean API calls instead of simulated clicks.</p>
+
+<h3>Other Notable Additions</h3>
+
+<ul>
+<li><strong>Sorted commands alphabetically</strong> in help output &mdash; small quality-of-life fix that makes the help menu actually scannable</li>
+<li><strong>Telegram DMs auto-inject thread IDs</strong> &mdash; conversations in Telegram now automatically carry thread context</li>
+<li><strong>Slack strips mentions in commands</strong> &mdash; <code>@openclaw /run deploy</code> now correctly parses as <code>/run deploy</code> instead of choking on the mention</li>
+<li><strong>Chrome extensions resolve bundled paths</strong> &mdash; fixes path resolution for Chrome extension integrations that bundle their own assets</li>
+</ul>
+
+<hr>
+
+<h2 id="cron">Cron &amp; Stability Fixes</h2>
+
+<p>Three targeted fixes for production reliability.</p>
+
+<h3>Robust Timer Re-arming</h3>
+
+<p>Cron scheduling now uses <strong>robust timer re-arming</strong>. Previously, if a cron job failed mid-execution, the timer wouldn't re-arm for the next interval. The job would silently stop running. Now the timer re-arms regardless of execution outcome.</p>
+
+<pre><code class="language-yaml">cron:
+  daily_report:
+    schedule: "0 9 * * *"
+    action: generate_report
+    retry_on_failure: true</code></pre>
+
+<h3>Compaction Retry on Context Overflow</h3>
+
+<p>Context compaction now <strong>retries on overflow</strong> instead of failing. When an agent's context window fills up during compaction, the system retries with a more aggressive pruning strategy. This prevents the frustrating scenario where an agent dies mid-conversation because compaction itself exceeded the context limit.</p>
+
+<h3>Clearer Billing Errors</h3>
+
+<p>Billing error messages are now human-readable. Instead of cryptic error codes, you get messages like:</p>
+
+<pre><code class="language-plaintext">Error: Monthly token budget exceeded ($200.00 / $200.00).
+Increase your budget in ~/.openclaw/openclaw.json or wait for the next billing cycle.
+Current usage: 42.1M tokens across 847 sessions.</code></pre>
+
+<hr>
+
+<h2 id="upgrade">Upgrade Now</h2>
+
+<p>This release signals a shift. OpenClaw started as a hobby project &mdash; move fast, ship features, worry about security later. That era is ending.</p>
+
+<p>341 malicious skills in the ClawHavoc campaign proved that a platform with this many users can't treat security as an afterthought. The safety scanner, credential redaction, and auth hardening in v2026.2.6 are the foundation. Expect more in this direction.</p>
+
+<p>Upgrade immediately:</p>
+
+<pre><code class="language-bash">openclaw update</code></pre>
+
+<p>Or if you're pinned to a specific version:</p>
+
+<pre><code class="language-bash">pip install openclaw==2026.2.6</code></pre>
+
+<div class="callout callout-tip">
+<div class="callout-title">Post-Upgrade Checklist</div>
+<p>After upgrading, verify your Gateway config has authentication enabled. Check that any custom exec approval allowlists use object format, not strings. And review your installed skills &mdash; the scanner will flag anything suspicious on your next <code>openclaw skill list</code> command.</p>
+</div>
+
+<h3>Full Changelog</h3>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Category</th><th>Change</th></tr></thead>
+<tbody>
+<tr><td><strong>Models</strong></td><td>Opus 4.6, GPT-5.3-Codex, Grok, Qianfan, pi-mono 0.52.7</td></tr>
+<tr><td><strong>Security</strong></td><td>Safety scanner, credential redaction, Gateway auth, A2UI auth, Control UI hardening, exec allowlist fix</td></tr>
+<tr><td><strong>Features</strong></td><td>Token dashboard, Voyage AI memory, sessions_history cap, Unbrowse, sorted help, Telegram thread IDs, Slack mention strip, Chrome path resolve</td></tr>
+<tr><td><strong>Stability</strong></td><td>Cron timer re-arming, compaction retry, clearer billing errors</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The intelligence is moving from features to foundations. That's the right direction.</p>
+
+</article>
+
+<footer class="footer">
+<div class="footer-logo"><span class="claw">Open</span>Claw</div>
+<p>Part of <a href="/">Awesome OpenClaw</a> &mdash; the most comprehensive OpenClaw resource collection.</p>
+<p style="margin-top:8px"><a href="https://github.com/rohitg00/awesome-openclaw">GitHub</a> &middot; <a href="/blog">Blog</a> &middot; <a href="/directory">Directory</a></p>
+</footer>
+
+<button class="back-to-top" id="backToTop" title="Back to top">&uarr;</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/json.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/markdown.min.js"></script>
+<script>
+(function(){
+'use strict';
+const $=s=>document.querySelector(s);
+const html=document.documentElement;
+function setTheme(t){
+if(t==='light'){html.setAttribute('data-theme','light');$('#themeIcon').textContent='\u2600'}
+else{html.removeAttribute('data-theme');$('#themeIcon').textContent='\u263E'}
+localStorage.setItem('theme',t);
+}
+const saved=localStorage.getItem('theme');
+if(saved)setTheme(saved);
+else if(window.matchMedia('(prefers-color-scheme:light)').matches)setTheme('light');
+$('#themeToggle').addEventListener('click',()=>setTheme(html.getAttribute('data-theme')==='light'?'dark':'light'));
+
+const btt=$('#backToTop');
+window.addEventListener('scroll',()=>{
+btt.classList.toggle('show',window.scrollY>400);
+const prog=$('#readingProgress');
+const h=document.documentElement.scrollHeight-window.innerHeight;
+if(h>0)prog.style.width=(window.scrollY/h*100)+'%';
+},{passive:true});
+btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+hljs.highlightAll();
+
+document.querySelectorAll('pre').forEach(pre=>{
+const btn=document.createElement('button');
+btn.className='copy-btn';btn.textContent='Copy';
+btn.addEventListener('click',()=>{
+const code=pre.querySelector('code')||pre;
+navigator.clipboard.writeText(code.textContent).then(()=>{
+btn.textContent='Copied!';btn.classList.add('copied');
+setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('copied')},2000);
+});
+});
+pre.appendChild(btn);
+
+const code=pre.querySelector('code');
+if(code){
+const cls=Array.from(code.classList).find(c=>c.startsWith('language-'));
+if(cls){
+const lang=cls.replace('language-','');
+const label=document.createElement('span');
+label.className='code-label';
+label.textContent=lang;
+pre.appendChild(label);
+}
+}
+});
+})();
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
