@@ -1,29 +1,25 @@
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text-dark.png">
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text.png">
-    <img alt="OpenClaw" src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text.png" width="500">
-  </picture>
+  <a href="https://github.com/openclaw/openclaw">
+    <picture>
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text-dark.png">
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text.png">
+      <img alt="OpenClaw" src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text.png" width="600">
+    </picture>
+  </a>
 </p>
 
 <h1 align="center">Awesome OpenClaw</h1>
 
 <p align="center">
-  <a href="https://awesome.re"><img src="https://awesome.re/badge.svg" alt="Awesome"></a>
-  <a href="https://github.com/openclaw/openclaw"><img src="https://img.shields.io/github/stars/openclaw/openclaw?style=flat&logo=github&label=Stars&color=gold" alt="Stars"></a>
-  <a href="https://github.com/openclaw/openclaw/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License"></a>
-  <a href="https://github.com/openclaw/openclaw/graphs/contributors"><img src="https://img.shields.io/github/contributors/openclaw/openclaw?label=Contributors&color=green" alt="Contributors"></a>
-  <a href="https://github.com/openclaw/openclaw/releases"><img src="https://img.shields.io/github/v/release/openclaw/openclaw?include_prereleases&label=Release&color=orange" alt="Release"></a>
-  <a href="https://discord.gg/openclaw"><img src="https://img.shields.io/discord/1456350064065904867?label=Discord&logo=discord&logoColor=white&color=5865F2" alt="Discord"></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/openclaw/openclaw/stargazers"><img src="https://img.shields.io/github/stars/openclaw/openclaw?style=flat&label=Stars&color=gold" alt="Stars"></a>
+  <a href="https://github.com/openclaw/openclaw/stargazers"><img src="https://img.shields.io/github/stars/openclaw/openclaw?style=flat&logo=github&label=Stars&color=gold" alt="Stars"></a>
   <a href="https://github.com/openclaw/openclaw/network/members"><img src="https://img.shields.io/github/forks/openclaw/openclaw?style=flat&label=Forks&color=silver" alt="Forks"></a>
-  <a href="https://github.com/openclaw/openclaw/graphs/contributors"><img src="https://img.shields.io/github/contributors/openclaw/openclaw?style=flat&label=Contributors&color=green" alt="Contributors"></a>
+  <a href="https://github.com/openclaw/openclaw/graphs/contributors"><img src="https://img.shields.io/github/contributors/openclaw/openclaw?label=Contributors&color=green" alt="Contributors"></a>
   <a href="https://github.com/openclaw/openclaw/commits"><img src="https://img.shields.io/github/commit-activity/t/openclaw/openclaw?style=flat&label=Commits&color=blue" alt="Commits"></a>
   <br>
-  <em>Fastest-growing GitHub repo ever — 9K to 179K stars in 60 days (18x faster than Kubernetes)</em>
+  <a href="https://awesome.re"><img src="https://awesome.re/badge.svg" alt="Awesome"></a>
+  <a href="https://github.com/openclaw/openclaw/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License"></a>
+  <a href="https://github.com/openclaw/openclaw/releases"><img src="https://img.shields.io/github/v/release/openclaw/openclaw?include_prereleases&label=Release&color=orange" alt="Release"></a>
+  <a href="https://discord.gg/openclaw"><img src="https://img.shields.io/discord/1456350064065904867?label=Discord&logo=discord&logoColor=white&color=5865F2" alt="Discord"></a>
 </p>
 
 <p align="center">
