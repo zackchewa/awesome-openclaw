@@ -1384,7 +1384,7 @@ node --version                     # Must be 22+
 | [freema/openclaw-mcp](https://github.com/freema/openclaw-mcp) | MCP server bridging Claude.ai to self-hosted OpenClaw with OAuth 2.1 authentication |
 | [beam-cloud/airstore](https://github.com/beam-cloud/airstore) | The filesystem for AI agents — persistent agent storage layer (89 stars) |
 | [sseanliu/VisionClaw](https://github.com/sseanliu/VisionClaw) | Real-time AI assistant for Meta Ray-Ban smart glasses — voice + vision + agentic actions, iOS/Swift (796 stars) |
-| **[PinchChat](https://github.com/MarlBurroW/pinchchat)** | Web (PWA) | Available | Open-source webchat UI with ChatGPT-like interface, live tool calls, multi-session, token tracking, streaming, 8 languages, theming |
+| [MarlBurroW/pinchchat](https://github.com/MarlBurroW/pinchchat) | Open-source webchat UI for OpenClaw — ChatGPT-like interface, live tool calls, multi-session, token tracking, streaming, PWA, 8 languages, theming |
 | [qwibitai/nanoclaw](https://github.com/qwibitai/nanoclaw) | Original NanoClaw — 500 lines TypeScript, Apple containers for security, WhatsApp, Anthropic Agent SDK (7K+ stars) |
 | [SeyZ/clawbands](https://github.com/SeyZ/clawbands) | Security middleware — intercepts tool execution, human-in-the-loop approval for dangerous actions |
 | [newtro/ClawGuard](https://github.com/newtro/ClawGuard) | Permission manifests, runtime enforcement, sandboxing, and audit logging for OpenClaw skills |
