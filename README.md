@@ -484,6 +484,7 @@ Access: `https://your-worker.workers.dev/?token=YOUR_GATEWAY_TOKEN`
 
 - [GitHub - cloudflare/moltworker](https://github.com/cloudflare/moltworker)
 - [Blog - Introducing Moltworker](https://blog.cloudflare.com/moltworker-self-hosted-ai-agent/)
+- [openclaw-nearai-worker](https://github.com/nearai/openclaw-nearai-worker) - Worker for hosting OpenClaw in NEAR AI Cloud.
 
 ---
 
@@ -528,6 +529,7 @@ ufw allow ssh && ufw allow 443/tcp && ufw enable
 
 - [Hetzner - OpenClaw Docs](https://docs.openclaw.ai/platforms/hetzner)
 - [Deploy with Pulumi + Tailscale](https://www.pulumi.com/blog/deploy-openclaw-aws-hetzner/)
+- [openclaw-terraform-hetzner](https://github.com/andreesg/openclaw-terraform-hetzner) - Terraform modules for provisioning OpenClaw on Hetzner Cloud.
 
 ---
 
@@ -730,6 +732,11 @@ docker compose run --rm openclaw-cli security audit --deep
 | **Matrix** | 5 min | E2E encryption | Best for privacy |
 | **Zalo** | 5 min | Direct integration | Popular in Vietnam |
 | **WebChat** | Built-in | Gateway token | Browser-based interface |
+| **WeCom** | [npm](https://www.npmjs.com/package/@wecom/wecom-openclaw-plugin) | Bot / app credentials | Tencent WeCom channel plugin |
+| **WeChat** | [npm](https://www.npmjs.com/package/@tencent-weixin/openclaw-weixin) | WeChat app credentials | Weixin channel plugin |
+| **Lark / Feishu** | [GitHub](https://github.com/larksuite/openclaw-lark) | Lark / Feishu app credentials | Official Lark/Feishu channel plugin |
+| **OpenIM** | [npm](https://www.npmjs.com/package/@openim/openclaw-channel) | OpenIM credentials | OpenIM channel plugin for OpenClaw gateway |
+| **DingTalk** | [GitHub](https://github.com/soimy/openclaw-channel-dingtalk) | DingTalk app credentials | DingTalk channel plugin |
 
 ### Local LLM Integration
 
@@ -784,6 +791,11 @@ ollama pull llama3.1
 | **Always-On Speech** | macOS/iOS/Android with ElevenLabs |
 
 - [OpenClaw Voice](https://openclawvoice.com/)
+- [VoxClaw](https://github.com/malpern/VoxClaw) - Voice output for OpenClaw from a Mac on the local network.
+- [openclaw-voice](https://github.com/Purple-Horizons/openclaw-voice) - Browser-based voice chat for assistants using Whisper STT and ElevenLabs TTS.
+- [openclaw-assistant](https://github.com/yuga-hashimoto/openclaw-assistant) - Android voice assistant app with wake word and system assistant integration.
+- [OpenClaw Termux](https://github.com/androidmalware/OpenClaw_Termux) - Android phone install guide with WhatsApp control.
+- [ClawGPT Android app](https://github.com/craihub/clawgpt-app) - Mobile companion app for OpenClaw.
 - [Voice Call Plugin Docs](https://docs.openclaw.ai/plugins/voice-call)
 - [ClawdTalk](https://clawdtalk.com/) - Phone calls and SMS for OpenClaw agents. Dedicated number, WebSocket client, agentic deep tools. ([GitHub](https://github.com/team-telnyx/clawdtalk-client) | [ClawHub](https://clawhub.ai/skills/clawdtalk-client))
 
@@ -839,6 +851,10 @@ Configure multiple agents with separate workspaces, personas, auth profiles, and
 
 - [Multi-Agent Docs](https://docs.openclaw.ai/concepts/multi-agent)
 - [Build Your Own AI Agent Team in 15 Minutes](https://ai2sql.io/how-to-build-your-own-ai-agent-team-with-openclaw-in-15-minutes)
+- [Antfarm](https://github.com/snarktank/antfarm) - Create an OpenClaw agent team from a command-line workflow.
+- [ClawTeam-OpenClaw](https://github.com/win4r/ClawTeam-OpenClaw) - Multi-agent swarm coordination adapted for OpenClaw.
+- [OpenClaw-RL](https://github.com/Gen-Verse/OpenClaw-RL) - Research project for training agents through conversational feedback.
+- [openclaw-multi-agent-kit](https://github.com/raulvidis/openclaw-multi-agent-kit) - Templates for multi-agent teams, Telegram supergroups, shared context, and bot-to-bot workflows.
 
 ### Companion Apps
 
@@ -864,6 +880,8 @@ Configure multiple agents with separate workspaces, personas, auth profiles, and
 | **[OpenClaw Studio](https://github.com/grp06/openclaw-studio)** | Community | Visual agent management with cron jobs, tool extraction, mentions (410 stars) |
 | **[Hawk Eye](https://github.com/benfoxsb/hawk-eye)** | Community | Workspace sentinel & operational dashboard |
 | **[ClawTick](https://clawtick.com/)** | Third-party | Performance monitoring, uptime checks, and real-time analytics for OpenClaw instances. |
+| **[Opik OpenClaw](https://github.com/comet-ml/opik-openclaw)** | Observability | Exports agent traces to Opik for monitoring cost, tokens, errors, and behavior |
+| **[openclaw-dashboard](https://github.com/tugcantopaloglu/openclaw-dashboard)** | Community dashboard | Real-time dashboard with auth, MFA, cost tracking, live feed, and memory browser |
 
 ### Backup & Restore
 
@@ -1022,6 +1040,9 @@ Created by OpenClaw agent "Clawd Clawderberg" (built by Matt Schlicht, Cofounder
 | **Foundry** | Self-writing meta-extension - learns how you work, researches docs, writes new capabilities into itself | [GitHub](https://github.com/lekt9/openclaw-foundry) |
 | **Supermemory (Official)** | Official Supermemory integration - perfect memory and recall, auto-stores conversations | [GitHub](https://github.com/supermemoryai/openclaw-supermemory) |
 | **AfrexAI Skills** | 13 free business skills: prospect research, cold email, competitor analysis, meeting prep, LinkedIn, ICP builder, CRM, invoicing, SEO, daily briefing, objection handling, email triage, humanizer | [Setup Wizard](https://afrexai-cto.github.io/agent-setup/) \| [Revenue Calculator](https://afrexai-cto.github.io/ai-revenue-calculator/) \| [Context Packs](https://afrexai-cto.github.io/context-packs/) |
+| **Apify OpenClaw Plugin** | Connects OpenClaw workflows to Apify actors and web automation tasks | [GitHub](https://github.com/apify/apify-openclaw-plugin) |
+| **MemOS Cloud OpenClaw Plugin** | Long-term memory plugin that recalls context before execution and stores conversations after runs | [GitHub](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin) |
+| **OpenClaw Codex App Server** | Plugin that brings Codex App Server workflows to Telegram and Discord through OpenClaw | [GitHub](https://github.com/pwrdrvr/openclaw-codex-app-server) |
 
 ### Third-Party Platforms
 
@@ -1071,6 +1092,8 @@ Capabilities: CDP, ARIA snapshots, screenshots, tab management, click/type/drag,
 - Review PRs from your phone, run tests remotely, merge code
 - Multi-instance Claude Code supervised by OpenClaw via Telegram + Tailscale
 - Run coding agents while sleeping
+- Coordinate multiple OpenClaw personas or worker agents from a single messaging channel.
+- Connect Codex App Server style coding workflows to Telegram or Discord through OpenClaw.
 
 ### Smart Home
 - Control Philips Hue, Elgato, Home Assistant via messaging
@@ -1084,6 +1107,7 @@ Capabilities: CDP, ARIA snapshots, screenshots, tab management, click/type/drag,
 
 ### Creative
 - Voice notes to clean journal entries
+- Turn voice chat, phone, and mobile companion apps into OpenClaw command surfaces.
 - Platform-specific content: X threads, LinkedIn posts, blog articles
 - Weekly meal planning in Notion (saves 1 hour/week)
 - **AI-Powered Daily Digest & Content Pipeline** - Production OpenClaw setup with 20+ cron jobs for automated news aggregation, multi-model content creation, social monitoring, and n8n webhook integration. Hosted on Oracle Cloud Free Tier. By Dr. Gaurav Caprihan.
@@ -1130,6 +1154,7 @@ Current OpenClaw operations include OpenTelemetry, Prometheus, dashboards, model
 - Keep old launch history and cost notes clearly historical when they are not current.
 - Avoid unsupported star, pricing, uptime, benchmark, growth, or adoption claims.
 - Add community resources at the end of the most relevant existing section instead of creating promotional top-level sections.
+- Parallel discovery found active public work around channels, observability, memory, mobile/voice, hosting, and multi-agent coordination; add only entries with public repos, packages, or docs.
 - Run `python3 scripts/validate_static.py` before opening or merging PRs.
 
 ## Tutorials & Guides
@@ -1471,6 +1496,27 @@ node --version                     # Must be 22+
 | [crystal-autobot/autobot](https://github.com/crystal-autobot/autobot) | Autobot - Ultra-efficient personal AI assistant in Crystal, 2 MB binary, ~5 MB RAM, <10ms startup, kernel-enforced sandboxing |
 | [htlin222/mini-claw](https://github.com/htlin222/mini-claw) | Mini-Claw - minimalist OpenClaw alternative using Claude Pro/Max or ChatGPT Plus directly in Telegram |
 | [Theseuschain/proof-of-lobster](https://github.com/Theseuschain/proof-of-lobster) | Proof of Lobster - verify Moltbook profiles as AI/human, launch on-chain sovereign agents with wallets |
+| [WecomTeam/wecom-openclaw-plugin](https://github.com/WecomTeam/wecom-openclaw-plugin) | Tencent WeCom channel plugin for OpenClaw |
+| [larksuite/openclaw-lark](https://github.com/larksuite/openclaw-lark) | Official Lark/Feishu channel plugin for OpenClaw |
+| [openimsdk/openclaw-channel](https://github.com/openimsdk/openclaw-channel) | OpenIM channel plugin for OpenClaw gateway |
+| [soimy/openclaw-channel-dingtalk](https://github.com/soimy/openclaw-channel-dingtalk) | DingTalk channel plugin for OpenClaw |
+| [comet-ml/opik-openclaw](https://github.com/comet-ml/opik-openclaw) | Exports OpenClaw agent traces to Opik |
+| [apify/apify-openclaw-plugin](https://github.com/apify/apify-openclaw-plugin) | OpenClaw integration for Apify actors and web automation workflows |
+| [MemTensor/MemOS-Cloud-OpenClaw-Plugin](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin) | MemOS Cloud long-term memory plugin for OpenClaw |
+| [malpern/VoxClaw](https://github.com/malpern/VoxClaw) | Voice output for OpenClaw agents on a local Mac network |
+| [Purple-Horizons/openclaw-voice](https://github.com/Purple-Horizons/openclaw-voice) | Browser-based voice chat for AI assistants and OpenClaw-style agents |
+| [yuga-hashimoto/openclaw-assistant](https://github.com/yuga-hashimoto/openclaw-assistant) | Android voice assistant app for OpenClaw |
+| [androidmalware/OpenClaw_Termux](https://github.com/androidmalware/OpenClaw_Termux) | Android Termux setup for OpenClaw with WhatsApp control |
+| [craihub/clawgpt-app](https://github.com/craihub/clawgpt-app) | Android companion app for OpenClaw |
+| [nearai/openclaw-nearai-worker](https://github.com/nearai/openclaw-nearai-worker) | Worker for hosting OpenClaw in NEAR AI Cloud |
+| [andreesg/openclaw-terraform-hetzner](https://github.com/andreesg/openclaw-terraform-hetzner) | Terraform modules for deploying OpenClaw on Hetzner Cloud |
+| [hitsub2/openclaw-on-eks](https://github.com/hitsub2/openclaw-on-eks) | OpenClaw deployment example for Amazon EKS |
+| [tugcantopaloglu/openclaw-dashboard](https://github.com/tugcantopaloglu/openclaw-dashboard) | Secure monitoring dashboard for OpenClaw agents |
+| [pwrdrvr/openclaw-codex-app-server](https://github.com/pwrdrvr/openclaw-codex-app-server) | OpenClaw plugin for Codex App Server workflows over Telegram and Discord |
+| [snarktank/antfarm](https://github.com/snarktank/antfarm) | Command-line workflow for building OpenClaw agent teams |
+| [win4r/ClawTeam-OpenClaw](https://github.com/win4r/ClawTeam-OpenClaw) | Multi-agent swarm coordination adapted for OpenClaw |
+| [Gen-Verse/OpenClaw-RL](https://github.com/Gen-Verse/OpenClaw-RL) | Research project for training agents through conversational feedback |
+| [raulvidis/openclaw-multi-agent-kit](https://github.com/raulvidis/openclaw-multi-agent-kit) | Templates for multi-agent OpenClaw teams and Telegram supergroup workflows |
 
 ---
 
@@ -1483,6 +1529,7 @@ node --version                     # Must be 22+
 | **khal3d/openclaw** | [GitHub](https://github.com/khal3d/openclaw) | Docker & HELM deployment |
 
 - [Running OpenClaw on Kubernetes - Metoro Blog](https://metoro.io/blog/openclaw-kubernetes)
+- [openclaw-on-eks](https://github.com/hitsub2/openclaw-on-eks) - Example deployment pattern for OpenClaw on Amazon EKS.
 
 ---
 
