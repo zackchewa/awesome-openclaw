@@ -4,6 +4,8 @@
     { "source": "/index.html", "destination": "/docs/website/index.html" },
     { "source": "/directory.html", "destination": "/docs/website/directory.html" },
     { "source": "/directory", "destination": "/docs/website/directory.html" },
+    { "source": "/use-cases.html", "destination": "/docs/website/use-cases.html" },
+    { "source": "/use-cases", "destination": "/docs/website/use-cases.html" },
     { "source": "/blog.html", "destination": "/docs/blog/blog.html" },
     { "source": "/blog", "destination": "/docs/blog/blog.html" },
     { "source": "/blog/:slug", "destination": "/docs/blog/:slug.html" },
