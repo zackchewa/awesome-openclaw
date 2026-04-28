@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenClaw v2026.4.25 Shows the Project Has Entered Release-Cadence Mode</title>
+<meta name="description" content="The April release train is the clearest recent signal: OpenClaw is now moving through daily tagged releases and a fast plugin ecosystem.">
+<meta property="og:title" content="OpenClaw v2026.4.25 Shows the Project Has Entered Release-Cadence Mode">
+<meta property="og:description" content="The April release train is the clearest recent signal: OpenClaw is now moving through daily tagged releases and a fast plugin ecosystem.">
+<meta property="og:image" content="https://openclawsearch.com/og-image.png">
+<meta property="og:url" content="https://openclawsearch.com/blog/v2026-4-25-release-cadence">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OpenClaw v2026.4.25 Shows the Project Has Entered Release-Cadence Mode">
+<meta name="twitter:description" content="The April release train is the clearest recent signal: OpenClaw is now moving through daily tagged releases and a fast plugin ecosystem.">
+<meta name="twitter:image" content="https://openclawsearch.com/og-image.png">
+<link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/pixel-lobster.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0A0A0A;--bg-s1:#111;--bg-s2:#1A1A1A;--text:#EDEDED;--text-muted:#888;--card:rgba(255,255,255,.05);--card-border:rgba(255,255,255,.08);--primary:#DC2626;--primary-light:#EF4444;--link:#EF4444;--link-hover:#DC2626;--badge-bg:rgba(220,38,38,.12);--badge-text:#EF4444;--nav-bg:rgba(10,10,10,.8);--green:#22C55E;--green-bg:rgba(34,197,94,.08);--green-border:rgba(34,197,94,.25);--blue-bg:rgba(59,130,246,.08);--blue-border:rgba(59,130,246,.25)}
+[data-theme="light"]{--bg:#FAFAFA;--bg-s1:#FFF;--bg-s2:#F5F5F5;--text:#171717;--text-muted:#666;--card:#FFF;--card-border:rgba(0,0,0,.08);--link:#DC2626;--link-hover:#B91C1C;--badge-bg:rgba(220,38,38,.08);--badge-text:#DC2626;--nav-bg:rgba(250,250,250,.85);--green-bg:rgba(34,197,94,.06);--green-border:rgba(34,197,94,.2);--blue-bg:rgba(59,130,246,.06);--blue-border:rgba(59,130,246,.2)}
+html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px}.nav{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(16px);border-bottom:1px solid var(--card-border)}.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:64px}.nav-logo{font-weight:800;font-size:1.1rem;color:var(--text);text-decoration:none}.nav-logo .claw{color:var(--primary)}.nav-actions{display:flex;align-items:center;gap:12px}.nav-link,.gh-link{color:var(--text-muted);text-decoration:none;font-size:.85rem;font-weight:500;padding:6px 14px;border-radius:8px;border:1px solid var(--card-border)}.nav-link:hover,.nav-link.active,.gh-link:hover{color:var(--text);border-color:var(--primary)}.theme-toggle{background:var(--card);border:1px solid var(--card-border);color:var(--text);cursor:pointer;width:36px;height:36px;border-radius:8px}.article{max-width:820px;margin:0 auto;padding:0 24px 80px}.article-header{padding:72px 0 42px;border-bottom:1px solid var(--card-border);margin-bottom:42px}.article-badge{display:inline-flex;background:var(--badge-bg);color:var(--badge-text);font-size:.8rem;font-weight:700;padding:4px 14px;border-radius:16px;margin-bottom:20px}.article-title{font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}.article-title .hl{color:var(--primary)}.article-subtitle{font-size:1.15rem;color:var(--text-muted);margin-bottom:24px}.article-meta{display:flex;flex-wrap:wrap;gap:16px;color:var(--text-muted);font-size:.85rem}.article-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.article-pill{font-size:.75rem;padding:4px 12px;border-radius:6px;background:var(--card);border:1px solid var(--card-border);color:var(--text-muted);font-weight:500}.article h2{font-size:1.55rem;font-weight:800;margin:48px 0 18px;padding-left:16px;border-left:4px solid var(--primary);line-height:1.3}.article h3{font-size:1.15rem;font-weight:700;margin:30px 0 12px}.article p{color:var(--text-muted);margin-bottom:18px;line-height:1.8}.article strong{color:var(--text);font-weight:650}.article a{color:var(--link);text-decoration:none}.article a:hover{color:var(--link-hover);text-decoration:underline}.article ul{margin:0 0 22px 24px;color:var(--text-muted)}.article li{margin-bottom:8px}.callout{margin:24px 0;padding:20px 24px;border-radius:12px;border:1px solid var(--card-border);background:var(--bg-s1)}.callout-title{font-weight:800;font-size:.9rem;margin-bottom:8px;color:var(--text)}.callout-info{border-color:var(--blue-border);background:var(--blue-bg)}.callout-solution{border-color:var(--green-border);background:var(--green-bg)}.source-ref{margin:18px 0;padding:16px 18px;border-radius:10px;border:1px solid var(--card-border);background:var(--bg-s1);font-size:.9rem;color:var(--text-muted)}.source-title{font-weight:700;color:var(--text);margin-bottom:2px}.footer{text-align:center;padding:48px 24px;border-top:1px solid var(--card-border);color:var(--text-muted);font-size:.85rem}.footer a{color:var(--link);text-decoration:none}@media(max-width:768px){.nav-inner{padding:0 10px}.nav-actions{gap:6px}.nav-link{padding:4px 8px;font-size:.75rem}.gh-link span{display:none}.article{padding:0 16px 40px}.article-header{padding:48px 0 32px}.article-title{font-size:1.8rem}.article h2{font-size:1.3rem}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner">
+<a href="/" class="nav-logo"><span class="claw">Open</span>Claw</a>
+<div class="nav-actions"><a href="/" class="nav-link">Home</a><a href="/directory" class="nav-link">Directory</a><a href="/use-cases" class="nav-link">Use Cases</a><a href="/blog" class="nav-link active">Blog</a><button class="theme-toggle" id="themeToggle" title="Toggle theme"><span id="themeIcon">☾</span></button><a href="https://github.com/rohitg00/awesome-openclaw" target="_blank" rel="noopener" class="gh-link"><span>GitHub</span></a></div>
+</div></nav>
+<article class="article">
+<header class="article-header">
+<div class="article-badge">Release</div>
+<h1 class="article-title">OpenClaw v2026.4.25 Shows the Project Has Entered Release-Cadence Mode</h1>
+<p class="article-subtitle">The April release train is the clearest recent signal: OpenClaw is now moving through daily tagged releases and a fast plugin ecosystem.</p>
+<div class="article-meta"><span>Rohit Ghumare · <a href="https://x.com/ghumare64" target="_blank" rel="noopener">@ghumare64</a></span><span>Apr 27, 2026</span><span>9 min read</span><span>Week of Apr 21, 2026</span></div>
+<div class="article-pills"><span class="article-pill">Release</span>
+<span class="article-pill">v2026.4.25</span>
+<span class="article-pill">April 2026</span></div>
+</header>
+<div class="callout callout-info"><div class="callout-title">Timeline note</div><p>v2026.4.20 published Apr 21, v2026.4.25 published Apr 27, 2026.</p><p>This article is placed in the week where the public source became relevant in the OpenClaw ecosystem. Dates are kept explicit so February, March, and April signals do not get mixed together.</p></div>
+<p><strong>OpenClaw v2026.4.25 Shows the Project Has Entered Release-Cadence Mode</strong></p>
+<p>OpenClaw&#x27;s release list shows a dense late-April cadence: v2026.4.20 on Apr 21, v2026.4.21 on Apr 22, v2026.4.22 on Apr 23, v2026.4.23 on Apr 24, v2026.4.24 on Apr 25, and v2026.4.25 on Apr 27.</p>
+<h2>What actually changed</h2>
+<p>That cadence changes how the ecosystem should document things. A static guide can become stale in days. Directory entries, use cases, and tutorials need dates, version notes, and clear source links.</p>
+<p>The bigger pattern is that OpenClaw is no longer only a personal assistant repo. It is becoming a small operating layer around channels, tools, memory, automation, observability, and deployment. Each new project is another proof point, but the dates matter. A February voice project is not the same signal as an April release train.</p>
+<h2>Why developers should care</h2>
+<p>Developers do not adopt platforms because the category sounds exciting. They adopt them when a specific workflow becomes easier: message an agent, run a tool, inspect the output, recover from failure, and keep control over the system.</p>
+<p>This finding matters because it makes one part of that workflow more concrete. It either improves a channel, a deployment path, a debugging loop, a memory layer, or a team coordination pattern.</p>
+<h2>The practical read</h2>
+<p>When writing about OpenClaw now, attach the date. Separate created date, updated date, and release date. Do not mix February ecosystem stories with April release behavior.</p>
+<div class="callout callout-solution"><div class="callout-title">What to add to the directory</div><p>Add the public resource, keep the description neutral, include the date context, and avoid unsupported claims. If the project is a plugin, say what surface it connects. If it is infrastructure, say what it deploys. If it is memory or observability, say what gets stored or traced.</p></div>
+<h2>Source</h2>
+<div class="source-ref"><a href="https://github.com/openclaw/openclaw/releases/tag/v2026.4.25" target="_blank" rel="noopener"><div class="source-title">OpenClaw v2026.4.25</div><div>https://github.com/openclaw/openclaw/releases/tag/v2026.4.25</div></a></div>
+</article>
+<footer class="footer"><p>Part of <a href="/">Awesome OpenClaw</a>. See the <a href="/directory">directory</a> and <a href="/use-cases">use cases</a>.</p></footer>
+
+<script>(function(){const $=s=>document.querySelector(s);const html=document.documentElement;function setTheme(t){if(t==='light'){html.setAttribute('data-theme','light');$('#themeIcon').textContent='☀'}else{html.removeAttribute('data-theme');$('#themeIcon').textContent='☾'}localStorage.setItem('theme',t)}const saved=localStorage.getItem('theme');if(saved)setTheme(saved);$('#themeToggle').addEventListener('click',()=>setTheme(html.getAttribute('data-theme')==='light'?'dark':'light'));})();</script>
+
+</body>
+</html>
